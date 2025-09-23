@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruoxuan Zhang</title>
+  <style>
+    body { 
+      font-family: sans-serif; 
+      line-height: 1.6; 
+      max-width: 900px; 
+      margin: auto; 
+      padding: 20px; 
+    }
+    header { 
+      text-align: center; 
+      margin-bottom: 40px; 
+    }
+    .section { 
+      margin-bottom: 50px; 
+    }
+    h1, h2 { 
+      color: #333; 
+    }
+    .nav-link { 
+      margin: 0 15px; 
+    }
+    .pub-item { 
+      display: flex; 
+      align-items: flex-start; 
+      margin-bottom: 20px; 
+    }
+    .pub-item img { 
+      width: 120px; 
+      height: auto; 
+      margin-right: 15px; 
+      border-radius: 8px; 
+    }
+    .pub-info { 
+      flex: 1; 
+    }
+    .pub-title { 
+      font-weight: bold; 
+      font-size: 1.1em; 
+      margin-bottom: 5px; 
+    }
+    .pub-venue { 
+      font-style: italic; 
+      color: #666; 
+      margin-bottom: 5px; 
+    }
+    .gallery { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); /* 四列 */
+      gap: 15px; 
+      margin-top: 20px; 
+    }
+    .gallery img { 
+      width: 100%; 
+      aspect-ratio: 3 / 4; /* 宽:高 = 3:4，纵向比横向高 */
+      border-radius: 10px; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+      object-fit: cover; /* 裁剪多余部分保持比例 */
+    }
+  </style>
+</head>
+<body>
+<header>
+    <h1>Ruoxuan Zhang</h1>
+    <p>PhD Candidate at Jilin University</p>
+    <div>
+        <a href="https://github.com/zhangdaxia22" class="nav-link">Github</a>
+        <a href="https://huggingface.co/RUOXUAN123/datasets">Hugging Face</a>
+    </div>
+</header>
+
+<div class="section">
+    <h2>About Me</h2>
+    <img src="image.jpg" alt="您的头像" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; float: right; margin-left: 20px;">
+    <p>I am a first-year Ph.D. student at the College of Computer Science, Jilin University, advised by <a href="https://www.hongxiaxie.net/">Prof. Hongxia Xie</a>. My research interests focus on recipe generation, sequential image synthesis, and embodied agents. I received my Master’s degree under the supervision of <a href="https://ccst.jlu.edu.cn/info/1367/19046.htm">Prof. Dantong Ouyang</a>. I welcome collaborations and discussions!</p>
+    <p>Email: zhangrx25@mails.jlu.edu.cn </p>
+</div>
+
+<div class="section">
+    <h2>Publications</h2>
+    <div class="pub-item">
+      <img src="cookanything.jpg" alt="Paper cover">
+      <div class="pub-info">
+        <div class="pub-title">CookAnything: A Framework for Flexible and Consistent Multi-Step Recipe Image Generation</div>
+        <div class="pub-venue">ACM Multimedia (MM), 2025</div>
+        <div class="pub-authors"> Ruoxuan Zhang, Bin Wen, Hongxia Xie, Yi Yao, Songhan Zuo, Jian-Yu Jiang-Lin, Hong-Han Shuai, Wen-Huang Cheng</div>
+        [<a href="https://zhangdaxia22.github.io/CookAnything/">Homepage</a>]
+      </div>
+    </div>
+     <div class="pub-item">
+      <img src="recipegen.png" alt="Paper cover">
+      <div class="pub-info">
+        <div class="pub-title">RecipeGen: A Step-Aligned Multimodal Benchmark for Real-World Recipe Generation</div>
+        <div class="pub-venue">ACM Multimedia Dataset Track (MM Dataset), 2025</div>
+        <div class="pub-authors">Ruoxuan Zhang, Jidong Gao, Bin Wen, Hongxia Xie, Chenming Zhang, Hong-Han Shuai, Wen-Huang Cheng</div>
+        [<a href="https://arxiv.org/abs/2506.06733">arXiv</a>] [<a href="https://wenbin08.github.io/RecipeGen/">Homepage</a>] [<a href="https://huggingface.co/datasets/RUOXUAN123/RecipeGen">Hugging Face</a>]
+      </div>
+    </div>
+     <div class="pub-item">
+      <img src="emoart.jpg" alt="Paper cover">
+      <div class="pub-info">
+        <div class="pub-title">EmoArt: A Multidimensional Dataset for Emotion-Aware Artistic Generation</div>
+        <div class="pub-venue">ACM Multimedia Dataset Track (MM Dataset), 2025</div>
+        <div class="pub-authors">Cheng Zhang, Hongxia Xie, Bin Wen, Songhan Zuo, Ruoxuan Zhang, Wen-Huang Cheng</div>
+        [<a href="https://arxiv.org/abs/2506.03652">arXiv</a>] [<a href="https://zhiliangzhang.github.io/EmoArt-130k/">Homepage</a>] [<a href="https://huggingface.co/datasets/printblue/EmoArt-130k">Hugging Face</a>]
+      </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Scholarships</h2>
+    <ul>
+      <li>2024 National Scholarship</li>
+      <li>2024 Nanrui Jibao Scholarship</li>
+      <li>2024 Outstanding Graduate Student Scholarship</li>
+      <li>2022,2023,2024 Jilin University Academic Scholarship</li>
+      <li>2020 Tianjin Government Scholarship</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Interests</h2>
+    <p>My personal interests include Chinese ancient architecture, Chinese grotto art, and I am a BIG FAN of JJ Lin and David Tao.</p>
+    <div class="gallery">
+      <img src="JJ.jpg" alt="Interest 1">
+      <img src="1.jpg" alt="Interest 2">
+      <img src="2.jpg" alt="Interest 3">
+      <img src="3.jpg" alt="Interest 4">
+    </div>
+</div>
+
+</body>
+</html>
