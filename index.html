@@ -5,160 +5,515 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ruoxuan Zhang</title>
   <style>
-    body { 
-      font-family: sans-serif; 
-      line-height: 1.6; 
-      max-width: 900px; 
-      margin: auto; 
-      padding: 20px; 
+    :root {
+      --bg: #f7f5f0;
+      --paper: #ffffff;
+      --text: #2f2f2f;
+      --muted: #6f6f6f;
+      --accent: #8b5e3c;
+      --accent-soft: #efe3d6;
+      --accent-light: #faf3eb;
+      --line: #e8dfd5;
+      --shadow: 0 12px 30px rgba(80, 55, 35, 0.10);
+      --radius: 22px;
     }
-    header { 
-      text-align: center; 
-      margin-bottom: 40px; 
+
+    * {
+      box-sizing: border-box;
     }
-    .section { 
-      margin-bottom: 50px; 
+
+    html {
+      scroll-behavior: smooth;
     }
-    h1, h2 { 
-      color: #333; 
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(139, 94, 60, 0.10), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(198, 154, 109, 0.14), transparent 30%),
+        linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
     }
-    .nav-link { 
-      margin: 0 15px; 
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
     }
-    .pub-item { 
-      display: flex; 
-      align-items: flex-start; 
-      margin-bottom: 20px; 
+
+    a:hover {
+      color: #5f3d27;
     }
-    .pub-item img { 
-      width: 120px; 
-      height: auto; 
-      margin-right: 15px; 
-      border-radius: 8px; 
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 34px 22px 60px;
     }
-    .pub-info { 
-      flex: 1; 
+
+    header {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 52px 28px 44px;
+      border: 1px solid rgba(139, 94, 60, 0.13);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
-    .pub-title { 
-      font-weight: bold; 
-      font-size: 1.1em; 
-      margin-bottom: 5px; 
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -80px;
+      top: -90px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      opacity: 0.75;
     }
-    .pub-venue { 
-      font-style: italic; 
-      color: #666; 
-      margin-bottom: 5px; 
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      left: -60px;
+      bottom: -70px;
+      border-radius: 50%;
+      background: #f7eadb;
+      opacity: 0.8;
     }
-    .gallery { 
-      display: grid; 
-      grid-template-columns: repeat(4, 1fr); /* 四列 */
-      gap: 15px; 
-      margin-top: 20px; 
+
+    header > * {
+      position: relative;
+      z-index: 1;
     }
-    .gallery img { 
-      width: 100%; 
-      aspect-ratio: 3 / 4; /* 宽:高 = 3:4，纵向比横向高 */
-      border-radius: 10px; 
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
-      object-fit: cover; /* 裁剪多余部分保持比例 */
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: #2b2723;
+    }
+
+    .subtitle {
+      margin: 14px 0 8px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .header-email {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .nav a,
+    .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 0.93rem;
+    }
+
+    .nav a:hover,
+    .pub-links a:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .research-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: #6a4a33;
+      background: var(--accent-light);
+      border: 1px solid #eadccc;
+      font-size: 0.86rem;
+    }
+
+    .section {
+      margin: 24px 0;
+      padding: 28px;
+      border: 1px solid rgba(139, 94, 60, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 8px 24px rgba(70, 48, 32, 0.06);
+    }
+
+    .section:hover {
+      box-shadow: 0 14px 34px rgba(70, 48, 32, 0.10);
+      transform: translateY(-1px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      font-size: 1.45rem;
+      color: #2b2723;
+      letter-spacing: -0.02em;
+    }
+
+    h2::before {
+      content: "";
+      width: 10px;
+      height: 26px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), #d6a66c);
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-left: 2px solid var(--accent-soft);
+    }
+
+    .news-list li {
+      position: relative;
+      padding: 2px 0 18px 22px;
+      color: #3d3935;
+    }
+
+    .news-list li:last-child {
+      padding-bottom: 0;
+    }
+
+    .news-list li::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .date {
+      display: inline-block;
+      min-width: 74px;
+      margin-right: 8px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 170px;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .profile-img {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: var(--shadow);
+      justify-self: end;
+    }
+
+    .email-line {
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      margin-bottom: 16px;
+      border: 1px solid #eee4da;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffffff 0%, #fffaf5 100%);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pub-item:hover {
+      transform: translateY(-3px);
+      border-color: #dcc7b4;
+      box-shadow: 0 12px 26px rgba(80, 55, 35, 0.10);
+    }
+
+    .pub-item img {
+      width: 132px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid #eee0d1;
+      background: #faf8f4;
+    }
+
+    .pub-info {
+      flex: 1;
+    }
+
+    .pub-title {
+      font-weight: 750;
+      font-size: 1.08rem;
+      line-height: 1.42;
+      margin-bottom: 6px;
+      color: #27231f;
+    }
+
+    .pub-venue {
+      display: inline-block;
+      margin: 0 0 7px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #67452d;
+      font-style: normal;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+
+    .pub-badge {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f4eadf;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .pub-authors {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .compact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .compact-list li {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #fffaf5;
+      border: 1px solid #eee2d6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 18px;
+      box-shadow: 0 9px 22px rgba(0, 0, 0, 0.13);
+      object-fit: cover;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery img:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    footer {
+      margin: 34px 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 18px 14px 40px;
+      }
+
+      header {
+        padding: 42px 18px 34px;
+      }
+
+      .section {
+        padding: 22px 18px;
+      }
+
+      .about-grid,
+      .pub-item {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-img {
+        justify-self: center;
+        order: -1;
+      }
+
+      .pub-item img {
+        width: 100%;
+        height: 150px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-<header>
-    <h1>Ruoxuan Zhang</h1>
-    <p>PhD Candidate at Jilin University</p>
-    <div>
-        <a href="https://github.com/zhangdaxia22" class="nav-link">Github</a>
-        <a href="https://huggingface.co/RUOXUAN123/datasets">Hugging Face</a>
-    </div>
-</header>
+  <main class="page">
+    <header>
+      <h1>Ruoxuan Zhang</h1>
+      <p class="subtitle">Ph.D. Candidate at Jilin University</p>
+      <p class="header-email">Email: <a href="mailto:zhangrx25@mails.jlu.edu.cn">zhangrx25@mails.jlu.edu.cn</a></p>
+      <div class="research-tags">
+        <span class="tag">Recipe Generation</span>
+        <span class="tag">Sequential Image Synthesis</span>
+        <span class="tag">Embodied Agents</span>
+      </div>
+    </header>
 
-<div class="section">
-    <h2>About Me</h2>
-    <img src="image.jpg" alt="您的头像" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; float: right; margin-left: 20px;">
-    <p>I am a first-year Ph.D. student at the College of Computer Science, Jilin University, advised by <a href="https://www.hongxiaxie.net/">Prof. Hongxia Xie</a>. My research interests focus on Recipe Generation, Sequential Image Synthesis, and Embodied Agents. I received my Master’s degree under the supervision of <a href="https://ccst.jlu.edu.cn/info/1367/19046.htm">Prof. Dantong Ouyang</a>. Welcome collaborations and discussions!</p>
-    <p>Email: zhangrx25@mails.jlu.edu.cn </p>
-</div>
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <div class="about-grid">
+        <div>
+          <p>I am a first-year Ph.D. student at the College of Computer Science, Jilin University, advised by <a href="https://www.hongxiaxie.net/">Prof. Hongxia Xie</a>. My research interests focus on Recipe Generation, Sequential Image Synthesis, and Embodied Agents. I received my Master’s degree under the supervision of <a href="https://ccst.jlu.edu.cn/info/1367/19046.htm">Prof. Dantong Ouyang</a>. Welcome collaborations and discussions!</p>
+        </div>
+        <img src="image.jpg" alt="Ruoxuan Zhang portrait" class="profile-img">
+      </div>
+    </section>
 
-<div class="section">
-    <h2>Publications</h2>
-    <div class="pub-item">
-      <img src="elegant.png" alt="Paper cover">
-      <div class="pub-info">
-        <div class="pub-title">Beyond Success: Refining Elegant Robot Manipulation from Mixed-Quality Data via Just-in-Time Intervention</div>
-        <div class="pub-venue">CVPR, 2026</div>
-        <div class="pub-authors"> Yanbo Mao, Jianlong Fu, Ruoxuan Zhang, Hongxia Xie, Meibao Yao</div>
-        [<a href="https://arxiv.org/abs/2511.22555">arXiv</a>]
-      </div>
-    </div>
-    <div class="pub-item">
-      <img src="mindpower.png" alt="Paper cover">
-      <div class="pub-info">
-        <div class="pub-title">MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents</div>
-        <div class="pub-venue">CVPR, 2026</div>
-        <div class="pub-authors"> Ruoxuan Zhang, Qiyun Zheng, Zhiyu Zhou, Ziqi Liao, Siyu Wu, Jian-Yu Jiang-Lin, Bin Wen, Hongxia Xie, Jianlong Fu, Wen-Huang Cheng</div>
-        [<a href="https://arxiv.org/abs/2511.23055">arXiv</a>][<a href="https://zhangdaxia22.github.io/MindPower/">Homepage</a>]
-      </div>
-    </div>
-    <div class="pub-item">
-      <img src="cookanything.jpg" alt="Paper cover">
-      <div class="pub-info">
-        <div class="pub-title">CookAnything: A Framework for Flexible and Consistent Multi-Step Recipe Image Generation</div>
-        <div class="pub-venue">ACM Multimedia (MM), 2025</div>
-        <div class="pub-authors"> Ruoxuan Zhang, Bin Wen, Hongxia Xie, Yi Yao, Songhan Zuo, Jian-Yu Jiang-Lin, Hong-Han Shuai, Wen-Huang Cheng</div>
-        [<a href="http://arxiv.org/abs/2512.03540">arXiv</a>][<a href="https://zhangdaxia22.github.io/CookAnything/">Homepage</a>]
-      </div>
-    </div>
-     <div class="pub-item">
-      <img src="recipegen.png" alt="Paper cover">
-      <div class="pub-info">
-        <div class="pub-title">RecipeGen: A Step-Aligned Multimodal Benchmark for Real-World Recipe Generation</div>
-        <div class="pub-venue">ACM Multimedia Dataset Track (MM Dataset), 2025</div>
-        <div class="pub-authors">Ruoxuan Zhang, Jidong Gao, Bin Wen, Hongxia Xie, Chenming Zhang, Hong-Han Shuai, Wen-Huang Cheng</div>
-        [<a href="https://arxiv.org/abs/2506.06733">arXiv</a>] [<a href="https://wenbin08.github.io/RecipeGen/">Homepage</a>] [<a href="https://huggingface.co/datasets/RUOXUAN123/RecipeGen">Hugging Face</a>]
-      </div>
-    </div>
-     <div class="pub-item">
-      <img src="emoart.jpg" alt="Paper cover">
-      <div class="pub-info">
-        <div class="pub-title">EmoArt: A Multidimensional Dataset for Emotion-Aware Artistic Generation</div>
-        <div class="pub-venue">ACM Multimedia Dataset Track (MM Dataset), 2025</div>
-        <div class="pub-authors">Cheng Zhang, Hongxia Xie, Bin Wen, Songhan Zuo, Ruoxuan Zhang, Wen-Huang Cheng</div>
-        [<a href="https://arxiv.org/abs/2506.03652">arXiv</a>] [<a href="https://zhiliangzhang.github.io/EmoArt-130k/">Homepage</a>] [<a href="https://huggingface.co/datasets/printblue/EmoArt-130k">Hugging Face</a>]
-      </div>
-    </div>
-</div>
+    <section class="section" id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><span class="date">2026.5</span>Invited to give an oral presentation in <a href="https://research.nvidia.com/labs/amri/projects/IPA/2026/">IPA@CVPR2026</a>.</li>
+        <li><span class="date">2026.4</span>在 <a href="https://valser.org/2026/">VALSE 2026</a> 组织特色角活动。</li>
+        <li><span class="date">2026.3</span>Received the Jilin Bank Wang Xianghao Scholarship.</li>
+        <li><span class="date">2026.2</span>Two papers were accepted by CVPR 2026.</li>
+      </ul>
+    </section>
 
-<div class="section">
-    <h2>Scholarships</h2>
-    <ul>
-      <li>2024 National Scholarship</li>
-      <li>2024 Nanrui Jibao Scholarship</li>
-      <li>2024 Outstanding Graduate Student Scholarship</li>
-      <li>2022,2023,2024 Jilin University Academic Scholarship</li>
-      <li>2020 Tianjin Government Scholarship</li>
-    </ul>
-</div>
-<div class="section">
-    <h2>Education</h2>
-    <ul>
+    <section class="section" id="publications">
+      <h2>Publications</h2>
+      <article class="pub-item">
+        <img src="elegant.png" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">Beyond Success: Refining Elegant Robot Manipulation from Mixed-Quality Data via Just-in-Time Intervention</div>
+          <div class="pub-venue">CVPR, 2026</div>
+          <div class="pub-authors">Yanbo Mao, Jianlong Fu, Ruoxuan Zhang, Hongxia Xie, Meibao Yao</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2511.22555">arXiv</a></div>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <img src="mindpower.png" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents <span class="pub-badge">IPA Oral Presentation</span></div>
+          <div class="pub-venue">CVPR, 2026</div>
+          <div class="pub-authors">Ruoxuan Zhang, Qiyun Zheng, Zhiyu Zhou, Ziqi Liao, Siyu Wu, Jian-Yu Jiang-Lin, Bin Wen, Hongxia Xie, Jianlong Fu, Wen-Huang Cheng</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2511.23055">arXiv</a><a href="https://zhangdaxia22.github.io/MindPower/">Homepage</a></div>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <img src="cookanything.jpg" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">CookAnything: A Framework for Flexible and Consistent Multi-Step Recipe Image Generation</div>
+          <div class="pub-venue">ACM Multimedia, 2025</div>
+          <div class="pub-authors">Ruoxuan Zhang, Bin Wen, Hongxia Xie, Yi Yao, Songhan Zuo, Jian-Yu Jiang-Lin, Hong-Han Shuai, Wen-Huang Cheng</div>
+          <div class="pub-links"><a href="http://arxiv.org/abs/2512.03540">arXiv</a><a href="https://zhangdaxia22.github.io/CookAnything/">Homepage</a></div>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <img src="recipegen.png" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">RecipeGen: A Step-Aligned Multimodal Benchmark for Real-World Recipe Generation</div>
+          <div class="pub-venue">ACM Multimedia Dataset Track, 2025</div>
+          <div class="pub-authors">Ruoxuan Zhang, Jidong Gao, Bin Wen, Hongxia Xie, Chenming Zhang, Hong-Han Shuai, Wen-Huang Cheng</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2506.06733">arXiv</a><a href="https://wenbin08.github.io/RecipeGen/">Homepage</a><a href="https://huggingface.co/datasets/RUOXUAN123/RecipeGen">Hugging Face</a></div>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <img src="emoart.jpg" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">EmoArt: A Multidimensional Dataset for Emotion-Aware Artistic Generation</div>
+          <div class="pub-venue">ACM Multimedia Dataset Track, 2025</div>
+          <div class="pub-authors">Cheng Zhang, Hongxia Xie, Bin Wen, Songhan Zuo, Ruoxuan Zhang, Wen-Huang Cheng</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2506.03652">arXiv</a><a href="https://zhiliangzhang.github.io/EmoArt-130k/">Homepage</a><a href="https://huggingface.co/datasets/printblue/EmoArt-130k">Hugging Face</a></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="scholarships">
+      <h2>Scholarships</h2>
+      <ul class="compact-list">
+        <li>2024 National Scholarship</li>
+        <li>2024 Nanrui Jibao Scholarship</li>
+        <li>2024 Outstanding Graduate Student Scholarship</li>
+        <li>2022, 2023, 2024 Jilin University Academic Scholarship</li>
+        <li>2020 Tianjin Government Scholarship</li>
+      </ul>
+    </section>
+
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <ul class="compact-list">
+        <li>2025.9–: Ph.D. Candidate, College of Computer Science, Jilin University</li>
         <li>2022.9–2025.6: Master’s Student, College of Computer Science, Jilin University</li>
         <li>2023.6–2023.8: Visiting Student, Southern University of Science and Technology [<a href="https://www.sustech.edu.cn/zh/faculties/yingxu.html">Advisor</a>]</li>
-        <li>2025.9–: Ph.D. Candidate, College of Computer Science, Jilin University</li>
-    </ul>
-</div>
+      </ul>
+    </section>
 
-<div class="section">
-    <h2>Interests</h2>
-    <p>My personal interests include Chinese ancient architecture, Chinese grotto art, and I am a BIG FAN of JJ Lin and David Tao!</p>
-    <div class="gallery">
-      <img src="JJ.jpg" alt="Interest 1">
-      <img src="1.jpg" alt="Interest 2">
-      <img src="2.jpg" alt="Interest 3">
-      <img src="3.jpg" alt="Interest 4">
-    </div>
-</div>
-
+    <footer>© 2026 Ruoxuan Zhang</footer>
+  </main>
 </body>
 </html>
