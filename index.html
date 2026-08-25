@@ -265,6 +265,10 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
+    .pub-item.no-image {
+      grid-template-columns: 1fr;
+    }
+
     .pub-item:hover {
       transform: translateY(-3px);
       border-color: #dcc7b4;
@@ -433,6 +437,8 @@
     <section class="section" id="news">
       <h2>News</h2>
       <ul class="news-list">
+        <li><span class="date">2026.8</span>Released <a href="https://github.com/avclabjlu/Awesome-Social-World-Models">Awesome Social World Models</a>, a comprehensive survey of Theory of Mind and social coordination.</li>
+        <li><span class="date">2026.8</span>One paper was accepted by Findings of EMNLP 2026.</li>
         <li><span class="date">2026.7</span>Started my internship in Tencent IEG Group. </li>
         <li><span class="date">2026.5</span>Invited to give an oral presentation in <a href="https://research.nvidia.com/labs/amri/projects/IPA/2026/">IPA@CVPR2026</a>.</li>
         <li><span class="date">2026.4</span>Organized a special-interest corner activity at <a href="https://valser.org/2026/">VALSE 2026</a>.</li>
@@ -443,6 +449,26 @@
 
     <section class="section" id="publications">
       <h2>Publications</h2>
+      <article class="pub-item no-image">
+        <img src="bin.png" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">Aligning Progress and Feasibility: A Neuro-Symbolic Dual Memory Framework for Long-Horizon LLM Agents</div>
+          <div class="pub-venue">Findings of EMNLP, 2026</div>
+          <div class="pub-authors">Bin Wen, Ruoxuan Zhang, Yang Chen, Hongxia Xie, Lan-Zhe Guo</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2604.02734">arXiv</a></div>
+        </div>
+      </article>
+
+      <article class="pub-item no-image">
+        <img src="survey.png" alt="Paper cover">
+        <div class="pub-info">
+          <div class="pub-title">Social World Models: A Comprehensive Survey of Theory of Mind and Social Coordination</div>
+          <div class="pub-venue">Survey, 2026</div>
+          <div class="pub-authors">Ruoxuan Zhang, Ziqi Liao, Zhiyu Zhou, Jian-Yu Jiang-Lin, Siyu Wu, Yanbo Mao, Bin Wen, Hongxia Xie, Jianlong Fu, Meibao Yao, Shao-Yuan Lo, Wen-Huang Cheng</div>
+          <div class="pub-links"><a href="https://github.com/avclabjlu/Awesome-Social-World-Models">GitHub</a></div>
+        </div>
+      </article>
+
       <article class="pub-item">
         <img src="elegant.png" alt="Paper cover">
         <div class="pub-info">
